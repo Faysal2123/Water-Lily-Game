@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotus Collector Game</title>
+    <link href="styles/style.css" rel="stylesheet">
+    <script src="scripts/game.js" defer></script>
+    <script src="scripts/animation.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-blue-100 flex flex-col items-center justify-center min-h-screen">
+    <!-- Loading Interface -->
+    <div id="loadingScreen" class="fixed inset-0 flex flex-col items-center justify-center bg-white z-50">
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <img src="" alt="Flowing River" class="mt-4">
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="hidden flex flex-col items-center">
+        <h1 class="text-2xl font-bold mb-2">Water Lily Game</h1>
+        <div id="balance" class="text-lg mb-2 flex items-center animate-bounce">
+            <img src="images/lotus.png" alt="Lotus Icon" class="w-6 h-6 mr-2"> 
+            Balance: <span id="totalBalance">0</span> Lotuses
+        </div>
+        <div class="relative">
+            <button id="playButton" class="bg-blue-500 text-white py-4 px-6 rounded transition transform hover:scale-110">
+                <img class="h-6 w-6 absolute top-1 left-3" src="images/lotus.png" alt="Lotus Icon">
+                
+            </button>
+        </div>
+        <!-- Task Bar -->
+        <div class="task-bar mt-4">
+            <button id="inviteFriends" class="bg-green-500 text-white py-1 px-3 rounded transition hover:bg-green-600">Invite Friends</button>
+        </div>
+    </div>
+    
+    <!-- Game Screen -->
+    <div id="gameScreen" class="fixed inset-0 flex flex-col items-center justify-center bg-blue-100 hidden">
+        <div id="timer" class="absolute top-2 left-4 text-2xl font-bold">30</div>
+        <div id="scoreDisplay" class="absolute top-2 right-4 text-xl">Score: 0</div>
+    </div>
+    
+    <!-- Results Screen -->
+    <div id="resultsScreen" class="hidden flex flex-col items-center">
+        <h2 class="text-2xl font-bold">Game Over</h2>
+        <p>You collected <span id="collectedLotuses">0</span> lotuses!</p>
+        <button id="backToDashboard" class="bg-blue-500 text-white py-2 px-4 rounded">Return to Dashboard</button>
+    </div>
+</body>
+</html>
